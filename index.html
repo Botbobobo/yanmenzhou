@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雁门州至尊皇家娱乐城 - 暴富狂欢派对</title>
+    <style>
+        :root {
+            --macau-gold: #ffd700;
+            --macau-red: #ff0033;
+            --neon-green: #00ff66;
+            --bg-dark: #0d0006;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Impact', 'Arial Black', "Microsoft YaHei", sans-serif;
+        }
+
+        /* 锁死视口，强制禁止出现全局滚动条 */
+        body {
+            background-color: var(--bg-dark);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
+                linear-gradient(rgba(255, 0, 51, 0.05) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.05) 2px, transparent 2px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* 顶部大招牌精确控制高度 */
+        header {
+            text-align: center;
+            padding: 1.5vh 10px;
+            background: linear-gradient(180deg, #4a000f 0%, #0d0006 100%);
+            border-bottom: 6px ridge var(--macau-gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 -5px 15px rgba(255, 0, 51, 0.2);
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 6px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px var(--macau-gold), 0 0 40px var(--macau-red);
+            animation: broadcast 1s linear infinite alternate;
+        }
+
+        @keyframes broadcast {
+            0% { transform: scale(0.98); filter: hue-rotate(0deg); }
+            100% { transform: scale(1.02); filter: hue-rotate(30deg); }
+        }
+
+        .header-tips {
+            font-size: 1.1rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 8px var(--neon-green);
+            margin-top: 5px;
+            font-weight: 900;
+        }
+
+        /* 娱乐城大厅：高度撑满剩余视口 */
+        .casino-lobby {
+            flex: 1;
+            display: flex;
+            padding: 2vh 20px;
+            gap: 20px;
+            width: 100%;
+            height: calc(100vh - 12vh); /* 精确减去头部预估高度 */
+            overflow: hidden;
+        }
+
+        /* 通用VIP面板设定 */
+        .right-box, .vip-lounge, .slot-machine-core {
+            background: rgba(15, 0, 20, 0.9);
+            border: 4px ridge var(--macau-gold);
+            border-radius: 20px;
+            padding: 1.5vh 20px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* 左侧：VIP老板秀 */
+        .vip-lounge {
+            flex: 1;
+        }
+
+        .vip-title {
+            font-size: 1.3rem;
+            color: var(--macau-gold);
+            text-align: center;
+            text-shadow: 0 0 8px var(--macau-gold);
+            border-bottom: 3px double var(--macau-gold);
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        /* 舞台图片自适应收缩 */
+        .boss-stage {
+            width: 100%;
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid #fff;
+            box-shadow: 0 0 20px var(--macau-red);
+            min-height: 150px;
+        }
+
+        .boss-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .boss-photo.active {
+            opacity: 1;
+        }
+
+        .brand-wine {
+            margin-top: 10px;
+            background: linear-gradient(90deg, var(--macau-red), transparent);
+            padding: 10px;
+            border-left: 5px solid var(--macau-gold);
+            font-size: 0.9rem;
+            color: #fff;
+            line-height: 1.5;
+            flex-shrink: 0;
+        }
+
+        /* 中间：至尊金沙抽奖机 */
+        .slot-machine-core {
+            flex: 1.4;
+            background: linear-gradient(135deg, #660014 0%, #1a0005 100%);
+            border-width: 5px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), inset 0 0 30px #000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slot-status {
+            font-size: 1.3rem;
+            color: #fff;
+            background: linear-gradient(90deg, #ff0000, #990000);
+            padding: 8px 30px;
+            border: 2px solid var(--macau-gold);
+            border-radius: 50px;
+            box-shadow: 0 0 15px var(--macau-red);
+            margin-bottom: 3vh;
+            font-weight: bold;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* 大屏自适应撑开 */
+        .slot-screen {
+            width: 100%;
+            flex: 1;
+            max-height: 240px;
+            background: #000;
+            border: 8px inset var(--macau-gold);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 4vh;
+            position: relative;
+            min-height: 120px;
+        }
+
+        .slot-screen::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border: 4px dotted #ffd700;
+            border-radius: 14px;
+            animation: casinoLights 0.3s linear infinite;
+        }
+
+        @keyframes casinoLights {
+            0% { border-color: #ffd700; filter: drop-shadow(0 0 5px #ffd700); }
+            50% { border-color: #ff0033; filter: drop-shadow(0 0 10px #ff0033); }
+            100% { border-color: #00ff66; filter: drop-shadow(0 0 5px #00ff66); }
+        }
+
+        .slot-text {
+            font-size: clamp(2.5rem, 5vh, 4.8rem); /* 字体大小随高度动态变化 */
+            font-weight: 900;
+            color: var(--macau-gold);
+            text-shadow: 0 0 20px var(--macau-gold), 0 0 40px #ff3300;
+            letter-spacing: 6px;
+            text-align: center;
+        }
+
+        .casino-btn {
+            background: linear-gradient(180deg, #00ff66 0%, #006622 100%);
+            color: white;
+            border: 4px solid #fff;
+            padding: 15px 60px;
+            font-size: clamp(1.4rem, 3vh, 2.2rem);
+            font-weight: 900;
+            border-radius: 100px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 255, 102, 0.5);
+            transition: all 0.1s ease;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.7);
+            letter-spacing: 4px;
+            flex-shrink: 0;
+        }
+
+        .casino-btn:hover {
+            transform: scale(1.03) translateY(-2px);
+        }
+
+        .casino-btn.grand-finale {
+            background: linear-gradient(180deg, #ff0055 0%, #80002a 100%) !important;
+            border-color: var(--macau-gold) !important;
+            box-shadow: 0 0 40px var(--macau-red) !important;
+            animation: superPulse 0.6s infinite alternate;
+        }
+
+        @keyframes superPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); box-shadow: 0 0 50px var(--macau-gold); }
+        }
+
+        /* 右侧布局控制 */
+        .panel-right {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .panel-right .right-box:first-child {
+            flex: 1.2; /* 奖池占用多一点 */
+        }
+
+        .panel-right .right-box:last-child {
+            flex: 1; /* 配置区占用少一点 */
+        }
+
+        .jackpot-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(255,215,0,0.2);
+            padding: 1vh 15px;
+            border-radius: 12px;
+            margin-bottom: 0.8vh;
+        }
+        .jackpot-card:last-child { margin-bottom: 0; }
+
+        .jackpot-card.active {
+            border-color: #ff0033;
+            background: rgba(255, 0, 51, 0.12);
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+        }
+
+        .item-tag {
+            color: var(--macau-gold);
+            font-weight: bold;
+            background: rgba(255,215,0,0.15);
+            padding: 1px 8px;
+            border-radius: 4px;
+        }
+
+        .winner-banner {
+            font-size: 1.3rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            margin-top: 5px;
+            font-weight: 900;
+            display: none;
+        }
+
+        /* 配置输入与筹码流自适应区 */
+        .config-area {
+            gap: 5px;
+        }
+
+        .config-area label {
+            color: var(--macau-gold);
+            font-size: 0.95rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .name-input-box {
+            width: 100%;
+            height: 4.5vh; /* 随高度缩放 */
+            min-height: 40px;
+            background: #110005;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 8px;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            resize: none;
+            flex-shrink: 0;
+        }
+
+        .token-visual-title {
+            font-size: 0.85rem;
+            color: #aaa;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* 筹码流自适应滚动 */
+        .chips-container {
+            width: 100%;
+            flex: 1;
+            overflow-y: auto;
+            border: 1px dashed rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 6px;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-wrap: wrap;
+            content-visibility: auto; /* 渲染性能优化 */
+            gap: 6px;
+        }
+
+        .casino-chip-tag {
+            background: linear-gradient(135deg, #2a0007 0%, #4a0010 100%);
+            color: #fff;
+            border: 1.5px solid var(--macau-gold);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .casino-chip-tag::before {
+            content: '•';
+            color: var(--neon-green);
+            margin-right: 4px;
+        }
+
+        /* 滚动条美化（确保隐藏或极细，不破坏全局美感） */
+        .chips-container::-webkit-scrollbar { width: 3px; }
+        .chips-container::-webkit-scrollbar-track { background: transparent; }
+        .chips-container::-webkit-scrollbar-thumb { background: var(--macau-gold); }
+
+        /* 全屏最终谢幕剧场 */
+        #grandEndingStage {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #000;
+            z-index: 100000;
+        }
+
+        #grandEndingStage video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mainAppBody" style="display: flex; flex-direction: column; height: 100vh; overflow: hidden;">
+        <header>
+            <h1>🎰 雁门州至尊皇家娱乐城 · 狂欢不夜天 🎰</h1>
+            <div class="header-tips">💰 美女老板亲临发糖！顶级代州黄酒无限畅饮，大奖花落谁家？！ 💰</div>
+        </header>
+
+        <div class="casino-lobby">
+            <div class="vip-lounge">
+                <div class="vip-title">👑 VIP贵宾厅 · 老板特写</div>
+                <div class="boss-stage">
+                    <img src="boss1.png" alt="老板照片1" class="boss-photo active">
+                    <img src="boss2.png" alt="老板照片2" class="boss-photo">
+                    <img src="boss3.png" alt="老板照片3" class="boss-photo">
+                    <img src="boss4.png" alt="老板照片4" class="boss-photo">
+                </div>
+                <div class="brand-wine">
+                    🍶 <b>代州黄酒至尊特调：</b> 全场消费由美女老板买单！祝各位一发入魂！
+                </div>
+            </div>
+
+            <div class="slot-machine-core">
+                <div class="slot-status" id="statusState">🎰 皇家核心已就绪，首发【三等奖】开轰！</div>
+                <div class="slot-screen">
+                    <div class="slot-text" id="rollerBox">JACKPOT</div>
+                </div>
+                <button class="casino-btn" id="megaBtn" onclick="actionCore()">拉动黄金摇杆</button>
+            </div>
+
+            <div class="panel-right">
+                <div class="right-box">
+                    <div class="vip-title" style="font-size:1.1rem; margin-bottom:5px; border-bottom:none; padding-bottom:0;">🎁 皇家至尊奖池</div>
+                    
+                    <div class="jackpot-card" id="tier-1">
+                        <div class="card-top">
+                            <span style="color:var(--macau-gold);">👑 一等奖 (至尊主宰)</span>
+                            <span class="item-tag">大疆 Pocket 4</span>
+                        </div>
+                        <div class="winner-banner" id="banner-1">✨ 终极赢家：</div>
+                    </div>
+
+                    <div class="jackpot-card" id="tier-2">
+                        <div class="card-top">
+                            <span style="color:#00f3ff;">🥈 二等奖 (皇家奢享)</span>
+                            <span class="item-tag">亚朵 Pro 枕头</span>
+                        </div>
+                        <div class="winner-banner" id="banner-2">✨ 终极赢家：</div>
+                    </div>
+
+                    <div class="jackpot-card active" id="tier-3">
+                        <div class="card-top">
+                            <span style="color:#ff6600;">🥉 三等奖 (幸运狂欢)</span>
+                            <span class="item-tag">高级剃须刀</span>
+                        </div>
+                        <div class="winner-banner" id="banner-3">✨ 终极赢家：</div>
+                    </div>
+                </div>
+
+                <div class="right-box config-area">
+                    <label for="namePoolInput">⚙️ 现场人员输入端</label>
+                    <textarea id="namePoolInput" class="name-input-box" oninput="renderChips()" placeholder="输入名字，可用空格、换行、各类逗号、顿号分隔..."></textarea>
+                    
+                    <div class="token-visual-title">🎰 实时解析：已封装的黄金筹码池</div>
+                    <div class="chips-container" id="chipsWrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="grandEndingStage">
+        <video id="endVideo" src="ending_video.mp4" loop autoplay muted controls></video>
+    </div>
+
+    <script>
+        // 1. 老板照片轮播
+        let photoIdx = 0;
+        const photos = document.querySelectorAll('.boss-photo');
+        setInterval(() => {
+            if(photos.length > 0) {
+                photos[photoIdx].classList.remove('active');
+                photoIdx = (photoIdx + 1) % photos.length;
+                photos[photoIdx].classList.add('active');
+            }
+        }, 3000);
+
+        // 初始化皇家种子数据
+        const defaultPool = ["阿豪", "细九", "星爷", "华仔", "发哥", "十三姨", "绮梦", "如霜"];
+        document.getElementById('namePoolInput').value = defaultPool.join("、");
+
+        let currentRound = 3; 
+        let isSpinning = false;
+        let spinClock = null;
+        let alreadyWonList = []; 
+
+        const rollerBox = document.getElementById('rollerBox');
+        const megaBtn = document.getElementById('megaBtn');
+        const statusState = document.getElementById('statusState');
+        const chipsWrapper = document.getElementById('chipsWrapper');
+
+        function getNameList() {
+            const rawText = document.getElementById('namePoolInput').value;
+            let list = rawText.trim().split(/\s+|,|，|、|;|；/).filter(name => name.length > 0);
+            return list.length > 0 ? list : defaultPool;
+        }
+
+        function getFilteredPool() {
+            const list = getNameList();
+            return list.filter(name => !alreadyWonList.includes(name) && name.toUpperCase() !== 'MC');
+        }
+
+        function renderChips() {
+            const currentPool = getFilteredPool();
+            chipsWrapper.innerHTML = '';
+            currentPool.forEach(name => {
+                const chip = document.createElement('span');
+                chip.className = 'casino-chip-tag';
+                chip.innerText = name;
+                chipsWrapper.appendChild(chip);
+            });
+            if(currentPool.length === 0) {
+                chipsWrapper.innerHTML = '<span style="color:#666; font-size:0.8rem;">暂无可用筹码...</span>';
+            }
+        }
+
+        function syncPrizeUI() {
+            for(let i=1; i<=3; i++) {
+                document.getElementById(`tier-${i}`).classList.remove('active');
+            }
+            
+            if(currentRound === 3) {
+                statusState.innerText = "🎰 正在轰炸：三等奖【高级剃须刀】";
+                document.getElementById('tier-3').classList.add('active');
+            } else if(currentRound === 2) {
+                statusState.innerText = "⚡ 正在轰炸：二等奖【亚朵 Pro 枕头】";
+                document.getElementById('tier-2').classList.add('active');
+            } else if(currentRound === 1) {
+                statusState.innerText = "👑 终极争夺：一等奖【大疆 Pocket 4】";
+                document.getElementById('tier-1').classList.add('active');
+            } else {
+                statusState.innerText = "🎉 所有人选已诞生！全场气氛燃到爆炸！";
+                rollerBox.innerText = "MC"; 
+                
+                megaBtn.innerText = "✨ 狂欢盛宴·圆满谢幕 ✨";
+                megaBtn.classList.add('grand-finale'); 
+            }
+            renderChips(); 
+        }
+
+        function actionCore() {
+            if (currentRound < 1) {
+                triggerGrandEnding();
+                return;
+            }
+
+            const activePool = getFilteredPool();
+
+            if (!isSpinning) {
+                isSpinning = true;
+                megaBtn.innerText = "🛑 猛击锁定！";
+                spinClock = setInterval(() => {
+                    const r = Math.floor(Math.random() * activePool.length);
+                    rollerBox.innerText = activePool[r];
+                }, 30);
+            } else {
+                clearInterval(spinClock);
+                isSpinning = false;
+
+                let finalWinner = "";
+
+                if (currentRound === 1) {
+                    finalWinner = "MC";
+                } else {
+                    const randomIndex = Math.floor(Math.random() * activePool.length);
+                    finalWinner = activePool[randomIndex];
+                    alreadyWonList.push(finalWinner);
+                }
+
+                rollerBox.innerText = finalWinner; 
+
+                const banner = document.getElementById(`banner-${currentRound}`);
+                banner.innerText = `🎯 赢家：${finalWinner}`;
+                banner.style.display = 'block';
+
+                currentRound--;
+                if(currentRound >= 1) {
+                    megaBtn.innerText = "继续拉动摇杆";
+                }
+                syncPrizeUI();
+            }
+        }
+
+        function triggerGrandEnding() {
+            document.getElementById('mainAppBody').style.display = 'none';
+            const endStage = document.getElementById('grandEndingStage');
+            endStage.style.display = 'flex';
+            
+            const videoEl = document.getElementById('endVideo');
+            if (videoEl) {
+                videoEl.muted = false; 
+                videoEl.play().catch(e => console.log("播放被拦截"));
+            }
+        }
+
+        // 页面首次装载
+        syncPrizeUI();
+    </script>
+</body>
+</html>
